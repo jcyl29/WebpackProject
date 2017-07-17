@@ -22,7 +22,7 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: '[name].js'
+        filename: '[name].[chunkhash].js'
     },
     module: {
         rules: [
@@ -42,7 +42,7 @@ module.exports = {
     // loaders look at the invdidual files
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor'
+            names: ['vendor', 'manifest']
         }),
         // maybe if i made an index.html which simply included a jinja2 file,
         // i can still use this plugin?
