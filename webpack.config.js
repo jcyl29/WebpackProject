@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const VENDOR_LIBS = [
     "faker",
@@ -42,6 +43,11 @@ module.exports = {
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor'
+        }),
+        // maybe if i made an index.html which simply included a jinja2 file,
+        // i can still use this plugin?
+        new HtmlWebpackPlugin({
+            template: 'src/index.html'
         })
     ]
 
