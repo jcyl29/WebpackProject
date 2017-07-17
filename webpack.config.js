@@ -35,6 +35,14 @@ module.exports = {
                 test: /\.css$/
             }
         ]
-    }
+    },
+
+    // plugins look at the sum of files in input or output
+    // loaders look at the invdidual files
+    plugins: [
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor'
+        })
+    ]
 
 };
