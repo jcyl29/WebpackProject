@@ -20,6 +20,11 @@ module.exports = {
         bundle: './src/index.js',
         vendor: VENDOR_LIBS
     },
+
+    // Pro Tip!
+    // Don’t use [chunkhash] in development since this will increase compilation time.
+    // Separate development and production configs and use [name].js
+    // for development and [name].[chunkhash].js in production.
     output: {
         path: path.join(__dirname, 'dist'),
         filename: '[name].[chunkhash].js'
